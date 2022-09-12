@@ -2,25 +2,25 @@
 import streamlit as st
 import pickle
 import pandas as pd
-import joblib as jb
+#import joblib as jb
 
 #Extrar los archivos pickle
-#with open('lin_reg.pkl', 'rb') as li:
-#    lin_reg = pickle.load(li)
-lin_reg = jb.load("lin_reg.pkl")
+with open('lin_reg.pkl', 'rb') as li:
+    lin_reg = pickle.load(li)
+#lin_reg = jb.load("lin_reg.pkl")
 
 
 
-#with open('log_reg.pkl', 'rb') as lo:
- #   log_reg = pickle.load(lo)
+with open('log_reg.pkl', 'rb') as lo:
+    log_reg = pickle.load(lo)
 
 
 log_reg = jb.load("log_reg.pkl")
 
 
 
-#with open('svc_m.pkl', 'rb') as sv:
- #   svc_m = pickle.load(sv)
+with open('svc_m.pkl', 'rb') as sv:
+    svc_m = pickle.load(sv)
 
 svc_m = jb.load("svc_m.pkl")
 
