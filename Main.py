@@ -15,14 +15,14 @@ with open('log_reg.pkl', 'rb') as lo:
     log_reg = pickle.load(lo)
 
 
-log_reg = jb.load("log_reg.pkl")
+#log_reg = jb.load("log_reg.pkl")
 
 
 
 with open('svc_m.pkl', 'rb') as sv:
     svc_m = pickle.load(sv)
 
-svc_m = jb.load("svc_m.pkl")
+#svc_m = jb.load("svc_m.pkl")
 
 #funcion para clasificar las plantas 
 def classify(num):
