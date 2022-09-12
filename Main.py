@@ -2,17 +2,16 @@
 import streamlit as st
 import pickle
 import pandas as pd
-import joblib
 
-#Extrar los archivos pickle (Modelos!!)
-#with open('C:/Users/jdbul/OneDrive/Escritorio/Python/App_MachineLearning/lin_reg.pkl', 'rb') as li:
-lin_reg = joblib.load("lin_reg.pkl")
+#Extrar los archivos pickle
+with open('lin_reg.pkl', 'rb') as li:
+    lin_reg = pickle.load(li)
 
-#with open('C:/Users/jdbul/OneDrive/Escritorio/Python/App_MachineLearning/log_reg.pkl', 'rb') as lo:
-log_reg = joblib.load("log_reg.pkl")
+with open('log_reg.pkl', 'rb') as lo:
+    log_reg = pickle.load(lo)
 
-#with open('C:/Users/jdbul/OneDrive/Escritorio/Python/App_MachineLearning/svc_m.pkl', 'rb') as sv:
-svc_m = joblib.load("svc_m.pkl")
+with open('svc_m.pkl', 'rb') as sv:
+    svc_m = pickle.load(sv)
 
 
 #funcion para clasificar las plantas 
@@ -26,11 +25,11 @@ def classify(num):
 
 def main():
     #titulo
-    st.title('Modelamiento de Iris by Juan Daniel Bula')
+    st.title('Modelamiento de Iris by @L33PIF')
     #titulo de sidebar
-    st.sidebar.header('Ingresa los parámetros...')
+    st.sidebar.header('User Input Parameters')
 
-    #funcion para poner los parametros en el sidebar
+    #funcion para poner los parametrso en el sidebar
     def user_input_parameters():
         sepal_length = st.sidebar.slider('Sepal length', 4.3, 7.9, 5.4)
         sepal_width = st.sidebar.slider('Sepal width', 2.0, 4.4, 3.4)
@@ -48,9 +47,9 @@ def main():
 
     #escoger el modelo preferido
     option = ['Linear Regression', 'Logistic Regression', 'SVM']
-    model = st.sidebar.selectbox('¿Cuál modelo quieres usar?', option)
-# Lado derecho de la app:
-    st.subheader('Parámetros del usuario:')
+    model = st.sidebar.selectbox('Which model you like to use?', option)
+
+    st.subheader('User Input Parameters')
     st.subheader(model)
     st.write(df)
 
@@ -65,8 +64,7 @@ def main():
 
 if __name__ == '__main__':
     main()
-    
-    
+
     
  # streamlit run "C:\Users\jdbul\OneDrive\Escritorio\Python\App_MachineLearning\irisWeb.py"   
  
